@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Button extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { data: 0 };
+        this.setNewNumber = this.setNewNumber.bind(this);
+      }
+
+      setNewNumber() {
+        this.setState({ data: this.state.data + 1 })
+      }
+      render() {
+        return (
+          <div>
+            <button onClick={this.setNewNumber}>INCREMENT</button>
+            <Content myNumber={this.state.data}></Content>
+          </div>
+        );
+      }
+    }
+
+
+    class Content extends React.Component {
+      componentWillMount() {
+        console.log('Component WILL MOUNT!')
+      }
+      componentDidMount() {
+        console.log('Component DID MOUNT!')
+      }
+      componentWillReceiveProps(newProps) {
+        console.log('Component WILL RECEIVE PROPS!')
+      }
+      shouldComponentUpdate(newProps, newState) {
+        // 如果这里是 return false 那么不会执行下面的生命周期钩子
+        return true;
+      }
+      componentWillUpdate(nextProps, nextState) {
+        console.log('Component WILL UPDATE!');
+      }
+      componentDidUpdate(prevProps, prevState) {
+        console.log('Component DID UPDATE!')
+      }
+      componentWillUnmount() {
+        console.log('Component WILL UNMOUNT!')
+      }
+
+      render() {
+        return (
+          <div>
+            <h3>{this.props.myNumber}</h3>
+          </div>
+        );
+      }
+    }
+    ReactDOM.render(
+      <div>
+        <Button />
+      </div>,
+      document.getElementById('root')
+    );
+  </script>
+
+</body>
+
+</html>

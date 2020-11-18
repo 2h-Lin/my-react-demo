@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Welcome extends React.Component {
+      render() {
+        const todoList = this.props.todoList
+        const listItems = todoList.map((item) =>
+          <li key={item.id}>{item.title}</li>
+        );
+        return (
+          <div>
+            <ul>{listItems}</ul>
+          </div>
+        )
+      }
+    }
+    const todoList = [{ title: 'one', id: 1 }, { title: 'two', id: 2 }, { title: 'three', id: 3 }, { title: 'four', id: 4 }, { title: 'five', id: 5 }]
+    ReactDOM.render(
+      <Welcome todoList={todoList} />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+
+</html>

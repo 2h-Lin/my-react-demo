@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Welcome extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = { name: 'world', isShow: false }
+        //方式 3
+        // this.handleClick = this.handleClick.bind(this)
+      }
+      //方式 1
+      handleClick = () => {
+        this.setState({isShow: !this.state.isShow})
+      }
+      //方式 2、方式 3
+      // handleClick() {
+      //   this.setState({isShow: !this.state.isShow})
+      // }
+      
+      render() {
+        return (
+          <div>
+            {/*
+              方式 1、方式 3
+            */}
+            <button onClick={this.handleClick}>click me</button>
+            {/*
+            //方式 2
+            <button onClick={() => this.handleClick()}>click me</button>
+            */}
+            {this.state.isShow && <h1>Hello {this.state.name}, this is Class Component!</h1>}
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Welcome/>,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+
+</html>
