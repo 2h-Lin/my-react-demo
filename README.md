@@ -1,5 +1,5 @@
 
-# Demo1
+# Demo01
 #### 初识react
 > ReactDOM.render()： 将React元素渲染到根Dom节点中
 - jsx语法
@@ -14,7 +14,7 @@
   
 
 
-# Demo2
+# Demo02
 JSX语法中可以放任何表达式
 
 ```javascript
@@ -45,7 +45,7 @@ JSX语法中可以放任何表达式
  )
 ```
 
-# Demo3
+# Demo03
 > React.createElement： 根据指定的第一个参数创建一个React元素
 ```javascript
   React.createElement(
@@ -77,7 +77,7 @@ JSX语法中可以放任何表达式
   );
 ```
 
-# Demo4 
+# Demo04 
 #### 组件
 
 - 函数组件
@@ -96,7 +96,7 @@ JSX语法中可以放任何表达式
   }
 ```
 
-## Demo5
+## Demo05
 #### state
 state 添加在class创建的组件中，作用相当于一个变量，必须使用setState才可更新state的状态
 ```javascript
@@ -119,7 +119,7 @@ state 添加在class创建的组件中，作用相当于一个变量，必须使
   }
   ```
 
-# Demo6
+# Demo06
 #### 事件处理
 
   - React 事件的命名采用小驼峰式（camelCase）
@@ -191,7 +191,7 @@ class里默认不会绑定this，所以有两种方法获取到this:
   }
 ```
 
-# Demo7
+# Demo07
 #### 列表渲染与key绑定
 列表渲染后每个元素要绑定一个独自的key，key 帮助 React 识别哪些元素改变了，比如被添加或删除。因此应当给数组中的每一个元素赋予一个确定的标识。
 一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key：
@@ -217,7 +217,7 @@ class里默认不会绑定this，所以有两种方法获取到this:
   )
 ```
 
-# Demo8
+# Demo08
 #### Form表单
 受控组件：在 HTML 中，表单元素（如<input>、 <textarea> 和 <select>）之类的表单元素通常自己维护 state，并根据用户输入进行更新。而在 React 中，可变状态（mutable state）通常保存在组件的 state 属性中，并且只能通过使用 setState()来更新。我们可以把两者结合起来，使 React 的 state 成为“唯一数据源”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。
 ```javascript
@@ -245,7 +245,7 @@ class里默认不会绑定this，所以有两种方法获取到this:
   )
 ```
 
-# Demo9
+# Demo09
 #### 生命周期
 常用生命周期：
 1. componentWillMount()：在渲染前调用,将在react17之后被废弃。
@@ -256,6 +256,7 @@ class里默认不会绑定this，所以有两种方法获取到this:
 6. componentWillUpdate(nextProps, nextState): 在props或state发生改变或者shouldComponentUpdate(nextProps, nextState)触发后。
 7. componentDidUpdate(prevProps, prevState)： 会在更新后会被立即调用。首次渲染不会执行此方法，可获取Dom节点。
 8. componentWillUnmount()：组件将要卸载时调用，一些事件监听和定时器需要在此时清除。
+
 
 # Demo 10 
 #### ajax请求
@@ -327,5 +328,4 @@ class里默认不会绑定this，所以有两种方法获取到this:
     document.getElementById('root')
   );
 ```
-
 
